@@ -1,8 +1,8 @@
 {
-  "name": "q",
+  "name": "baiduMap-drag-positioning",
   "version": "1.0.0",
-  "description": "",
-  "main": "SearchResult.js",
+  "description": "Use baidu map drag and obtain the address",
+  "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --hot --progress --colors",
     "build": "webpack --progress --colors"
@@ -12,7 +12,8 @@
     "url": "git+https://github.com/gjc9620/baiduMap-drag-positioning.git"
   },
   "keywords": [
-    "baidumap"
+    "baidumap",
+    "search"
   ],
   "author": "gjc9620",
   "license": "ISC",
