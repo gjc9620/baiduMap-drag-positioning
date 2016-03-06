@@ -11,8 +11,19 @@ export default class Map extends React.Component{
 
     constructor(props) {
         super(props);
+        var script = document.createElement('script');
+        let that = this;
+        script.type = 'text/javascript';
+        script.src = "http://api.map.baidu.com/getscript?v=2.0&ak="+ak;
+        document.getElementsByTagName('head')[0].appendChild(script)
+        script.onload = script.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                that.onload();
+                script.onload = script.onreadystatechange = null;
+            }
+        }
     }
-    componentDidMount(){
+    onload(){
         // 百度地图API功能
         var map = new BMap.Map("map");// 创建Map实例
         this.map = map;
@@ -21,7 +32,8 @@ export default class Map extends React.Component{
         map.setCenter("上海");
         map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
         this.addListen();
-
+    }
+    componentDidMount(){
     }
     addListen(){
         this.map.addEventListener("dragend",this.dragend);
