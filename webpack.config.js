@@ -1,12 +1,14 @@
 var webpack = require('webpack');
+var path = require("path");
+var buildPath = path.resolve(__dirname,"build");
 module.exports = {
     entry: [
         'webpack/hot/only-dev-server',
         "./app.js"
     ],
     output: {
-        path: './build',
-        filename: "bundle.js"
+        path: buildPath,
+        filename: "/bundle.js"
     },
     module: {
         loaders: [
@@ -19,6 +21,6 @@ module.exports = {
         extensions:['','.js','.json']
     },
     plugins: [
-        new webpack.NoErrorsPlugin()
+        //new webpack.NoErrorsPlugin()
     ]
 };

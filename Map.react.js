@@ -6,22 +6,19 @@ export default class Map extends React.Component{
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = url;
-        document.getElementsByTagName('head')[0].appendChild(script)
+        document.getElementsByTagName('head')[0].appendChild(script);
+        return script
     }
 
     constructor(props) {
         super(props);
-        var script = document.createElement('script');
         let that = this;
-        script.type = 'text/javascript';
-        script.src = "http://api.map.baidu.com/getscript?v=2.0&ak="+ak;
-        document.getElementsByTagName('head')[0].appendChild(script)
-        script.onload = script.onreadystatechange = function() {
+        this.jsonp("http://api.map.baidu.com/getscript?v=2.0&ak="+ak)
+            .onload = function() {
             if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
                 that.onload();
-                script.onload = script.onreadystatechange = null;
             }
-        }
+        };
     }
     onload(){
         // 百度地图API功能
