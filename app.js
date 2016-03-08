@@ -2,11 +2,8 @@ import React from 'react';
 import Router from 'react-router';
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
-import Positioning from './Positioning.react.js';
+import Positioning from './scripts/containers/Positioning.react.js';
 
-const includeMap = ()=>{
-    alert(1)
-};
 
 const routes = (
     <Route name="app" path="/" >

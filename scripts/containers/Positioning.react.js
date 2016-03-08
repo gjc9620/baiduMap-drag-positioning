@@ -1,8 +1,8 @@
 import React from 'react';
-import MapBox from './MapBox.react';
-import SearchResult from './SearchResult.react';
-import IncludeMap from './IncludeMap.react';
-import ak from './key';
+import MapBox from './../components/MapBox.react.js';
+import SearchResult from './../components/SearchResult.react.js';
+import IncludeMap from './../components/IncludeMap.react.js';
+import ak from './../components/key';
 
 class Positioning extends React.Component{
     constructor(props) {

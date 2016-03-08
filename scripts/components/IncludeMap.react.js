@@ -1,15 +1,18 @@
-import Map from "./Map.react";
+import Map from "./Map.react.js";
 import React from "react";
+import ak from "./key";
 export default class MapBox extends React.Component{
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+
+    }
+
     render(){
         return(
-            <div id="mapBox">
-                <Map />
-                <article id="marker"></article>
-            </div>
+            <div></div>
         )
     }
 }
