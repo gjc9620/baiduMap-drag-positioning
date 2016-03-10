@@ -1,6 +1,16 @@
 import React from "react";
 import ak from "./key";
 
+const execFunCount = (fun, count) =>{
+    let execCount = count;
+    return ()=>{
+        if(execCount) {
+            execCount--;
+            return fun(arguments)
+        }
+    }
+}
+
 export default class Map extends React.Component{
     jsonp (url) {
         var script = document.createElement('script');
@@ -12,13 +22,6 @@ export default class Map extends React.Component{
 
     constructor(props) {
         super(props);
-        let that = this;
-        this.jsonp("http://api.map.baidu.com/getscript?v=2.0&ak="+ak)
-            .onload = function() {
-            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
-                that.onload();
-            }
-        };
     }
     onload(){
         // 百度地图API功能
@@ -35,6 +38,13 @@ export default class Map extends React.Component{
     addListen(){
         this.map.addEventListener("dragend",this.dragend);
         this.map.addEventListener("zoomend",this.zoomend);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.mapScriptStatus) {
+            let onload = execFunCount(this.onload.bind(this),1);
+            onload();
+        }
     }
 
 

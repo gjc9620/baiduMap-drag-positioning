@@ -7,12 +7,19 @@ import ak from './../components/key';
 class Positioning extends React.Component{
     constructor(props) {
         super(props);
+        this.state ={
+            mapScriptStatus: false
+        }
+    }
+    changeMapScriptStatus(bol){
+        this.setState({mapScriptStatus: bol})
     }
     render(){
+        console.log(this.state.mapScriptStatus)
         return(
             <div id="positioning">
-                <IncludeMap />
-                <MapBox />
+                <IncludeMap changeMapScriptStatus={this.changeMapScriptStatus.bind(this)}/>
+                <MapBox mapScriptStatus={this.state.mapScriptStatus} />
                 <SearchResult />
             </div>
         )

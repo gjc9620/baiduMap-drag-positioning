@@ -5,9 +5,10 @@ export default class MapBox extends React.Component{
         super(props);
     }
     render(){
+        console.log(this.props.mapScriptStatus)
         return(
             <div id="mapBox">
-                <Map />
+                <Map mapScriptStatus={this.props.mapScriptStatus}/>
                 <article id="marker"></article>
             </div>
         )
